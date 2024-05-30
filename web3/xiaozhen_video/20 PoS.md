@@ -4,13 +4,13 @@ PoW普遍被诟病能好过高
 
 ## BTC统计数据
 
-![ad18cfb3b90899c5df4318dd179d91bc](20 PoS.resources/CD1B4837-6AC7-4B6B-AC76-6EF9D6C55619.png)
+![ad18cfb3b90899c5df4318dd179d91bc](20PoS.resources/CD1B4837-6AC7-4B6B-AC76-6EF9D6C55619.png)
 上图Y轴是瓦数，单位是TWh（10^12瓦时）
 下图是具体的统计数据
-![37a95f2da2354edfe969aae6c123e70f](20 PoS.resources/B4972DF0-E2A6-40A0-B9AA-7EF77AEA7208.png)
+![37a95f2da2354edfe969aae6c123e70f](20PoS.resources/B4972DF0-E2A6-40A0-B9AA-7EF77AEA7208.png)
 
 ## ETH统计数据
-![a371cd2edd826fd7688ba933b6ed1c28](20 PoS.resources/D2C83E3A-846A-4A78-8ADF-1F7EE209B5A6.png)
+![a371cd2edd826fd7688ba933b6ed1c28](20PoS.resources/D2C83E3A-846A-4A78-8ADF-1F7EE209B5A6.png)
 ETH的能耗比BTC低很多，主要原因是出块时间短。
 
 ## 矿工挖矿的目的
@@ -33,7 +33,7 @@ PoS和PoW不是互斥的，有的加密货币，采用的是，矿工持有的�
 
 # PoS面临的挑战
 
-![cfb22269a7820f421ac728c8930af9e7](20 PoS.resources/B14F104F-EA25-4814-A2C1-3602983A764A.png)
+![cfb22269a7820f421ac728c8930af9e7](20PoS.resources/B14F104F-EA25-4814-A2C1-3602983A764A.png)
 
 如上图所示，有的矿工会在两个分叉上两头下注，在下面质押的币，如果上面的链成为最长合法链，则不会收到任何影响和锁定。
 
@@ -54,7 +54,7 @@ Casper规定每一轮投票都要得到2/3以上验证者才能通过，这是�
 
 实际系统中，不再区分两轮message，而且将epoch由100个区块减少为50个。每次进行一轮投票，这次投票相当于上一轮的commit message，下一轮的prepare message。连续两轮投票，两个epoch都得到2/3的多数票，才算有效。
 
-![b1f1da1a1a3cbceea25ee1e478ed9381](20 PoS.resources/E1F5FF70-9453-49B6-89E9-2791094A0112.png)
+![b1f1da1a1a3cbceea25ee1e478ed9381](20PoS.resources/E1F5FF70-9453-49B6-89E9-2791094A0112.png)
 
 验证参与过程中，可以得到相应的奖励，类似矿工的出块奖励。
 相反如果验证者有不良行为，会收到惩罚。比如不作为，该投票时不去投票，结果导致系统迟迟无法达成共识，会扣除一部分保证金。如果验证者乱作为，乱投票，为两个有冲突的区块都投票，则会被没收全部保证金。被没收的保证金会被销毁掉，相当于减少了ETH系统中币的总量。

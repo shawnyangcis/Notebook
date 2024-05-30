@@ -15,7 +15,7 @@ BTC的挖矿算法是比较成功的，经受住了时间的考验。但是存�
 
 这方面一个早期的例子是莱特币，LiteCoin。它曾是市值仅次于BTC的第二大加密货币，使用的puzzle是sCrypt这种Hash函数，对内存要求很高。其具体设计思想是：
 1. 开设一个很大的数组，第一个数是seed，后面的每一个数都是前一个位置的数取Hash得到的。求解puzzle时按照伪随机顺序读取一些数，每次读取的位置也是和前一个位置相关的。例如下图所示。
-![bf2cbf62d649a8eeff5901bdbd6bf926](18 ETH挖矿算法.resources/5E5A3443-FD60-4C31-BFF2-89CA991511C7.png)
+![bf2cbf62d649a8eeff5901bdbd6bf926](18ETH挖矿算法.resources/5E5A3443-FD60-4C31-BFF2-89CA991511C7.png)
 
 先读取A位置的数，根据取值进行一些运算，得到下一次读取的位置B，然后读取出B的数，进行运算后，得到C的位置。
 这样做的好处是，如果数组开的足够大，对于挖矿的矿工来说就是Memory hard。如果有的矿工不保存整个数组，那么每次计算时都需要从seed开始一直算到要访问的那个位置，会大幅提高挖矿难度。
@@ -51,26 +51,26 @@ ETH采用了两个数据集，一大一小。
 ## 伪代码实现
 
 第一步：
-![6f627de1eaeba4a07499766e3641c3c4](18 ETH挖矿算法.resources/DC71E33E-2C4E-4454-BDF2-6538C9DF3EED.png)
+![6f627de1eaeba4a07499766e3641c3c4](18ETH挖矿算法.resources/DC71E33E-2C4E-4454-BDF2-6538C9DF3EED.png)
 
 第二步：
-![91630a5d5510504b21ed1d9af903d6a1](18 ETH挖矿算法.resources/131B9162-953A-434C-9C49-A815EA6C858F.png)
+![91630a5d5510504b21ed1d9af903d6a1](18ETH挖矿算法.resources/131B9162-953A-434C-9C49-A815EA6C858F.png)
 
 调用第二步的逻辑：
-![0856f931545a17860e52e2d85fcf0f04](18 ETH挖矿算法.resources/96ECA95D-6306-43C1-B14D-FC5763B2C140.png)
+![0856f931545a17860e52e2d85fcf0f04](18ETH挖矿算法.resources/96ECA95D-6306-43C1-B14D-FC5763B2C140.png)
 
 矿工的挖矿函数与轻节点验证函数：
-![931d459d1ad3e1db6a494334eca00f17](18 ETH挖矿算法.resources/CA2469B2-60FD-4EEA-B907-E6B67935AE9A.png)
+![931d459d1ad3e1db6a494334eca00f17](18ETH挖矿算法.resources/CA2469B2-60FD-4EEA-B907-E6B67935AE9A.png)
 每次相邻的两个元素，是不相关的。虽然位置上相邻，每个都是由Cache中的256个数生成的，且位置由伪随机产生。这样每个元素独立生成，为轻节点验证提供方便。
 轻节点验证函数里，full_size和挖矿函数里的full_size相同，都是dataset的长度，不是cache的长度。
 轻节点验证时，每次循环都会通过cache推算出对应index的dataset值。
 
 矿工挖矿的函数：
-![02586d51862b42b1d6279873424f862e](18 ETH挖矿算法.resources/E7B747A6-F1EE-490E-86FD-BF0294D67573.png)
+![02586d51862b42b1d6279873424f862e](18ETH挖矿算法.resources/E7B747A6-F1EE-490E-86FD-BF0294D67573.png)
 nonce的取值范围是0-2^64
 
 所有函数的汇总：
-![518f99028b6a59ae9bc9f353516d2391](18 ETH挖矿算法.resources/A497A893-E1BD-4305-A7D6-AC2BA9264A4F.png)
+![518f99028b6a59ae9bc9f353516d2391](18ETH挖矿算法.resources/A497A893-E1BD-4305-A7D6-AC2BA9264A4F.png)
 
 ## 效果
 
@@ -85,6 +85,6 @@ ETH采用了预挖矿，ETH在发行货币时，预留了一部分ETH货币给ET
 开发阶段，将一部分虚拟货币出售，换取资金支持项目的继续开发。
 
 # 统计数据
-![a93fdb5620dd709b656337328f78fe6b](18 ETH挖矿算法.resources/EFD5DA0D-D1A2-4066-A911-ED481BBA7D4A.png)
+![a93fdb5620dd709b656337328f78fe6b](18ETH挖矿算法.resources/EFD5DA0D-D1A2-4066-A911-ED481BBA7D4A.png)
 
 别的省略，视频录的太早，现在的数据已经变很多了。
